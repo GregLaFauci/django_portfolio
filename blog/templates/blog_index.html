@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-3">Hello, I'm Greg LaFauci</h1>
+        <p class="lead">I am a full-stack developer</p>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="https://github.com/GregLaFauci" role="button">Follow me on github!</a>
+        </p>
+    </div>
+</div>
+
+
+<div class="col-md-8 offset-md-2">
+    <h1>Term 1 Projects</h1>
+    <hr>
+    <div class="row">
+        
+        {% for post in posts %}
+            <div class="col-lg-4 d-flex align-items-stretch">
+                <div class="card mb-2">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <small>
+                            {{ post.created_on.date }} |&nbsp;
+                            Categories:&nbsp;
+                            {% for category in post.categories.all %}
+                            <a href="{% url 'blog_category' category.name %}">
+                                {{ category.name }}
+                            </a>&nbsp;
+                            {% endfor %}
+                        </small>
+                        <p>{{ post.body | slice:":200" }}...</p>
+                    </div>
+                    <img class="card-img-top" src="{{post.cover.url}}" height=250 alt="{{post.title}}">
+                    <a href="{% url 'blog_detail' post.pk%}" target="_blank" class="btn btn-primary">
+                        Read More
+                    </a>
+                    
+                    
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+</div>
+</br>
+<hr>
+</br>
+<div class="col-md-8 offset-md-2">
+    <h1>Term 2 Projects Coming Soon</h1>
+</div>
+{% endblock %}
