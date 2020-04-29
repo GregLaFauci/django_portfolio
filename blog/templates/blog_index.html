@@ -6,8 +6,8 @@
     <div class="container">
         <img class="rounded" src="../../media/images/avatar.png" style="height: 100; width: 100; float: left;">
         <h1 style="position: relative;" class="display-3">Hello, I'm Greg LaFauci</h1>
-        <a href="https://github.com/GregLaFauci"><i class="fa fa-github" style="font-size:26px; padding: 2%;"></i></a>
-        <a href="https://www.linkedin.com/in/greglafauci"><i class="fa fa-linkedin" style="font-size:26px; padding: 2%;"></i></a>
+        <a href="https://github.com/GregLaFauci"><i class="fa fa-github" style="font-size:26px; padding: 1%;"></i></a>
+        <a href="https://www.linkedin.com/in/greglafauci"><i class="fa fa-linkedin" style="font-size:26px; padding: 1%;"></i></a>
         
     </div>
 </div>
@@ -34,7 +34,7 @@
                         </a>&nbsp;
                         {% endfor %}
                     </small>
-                    <p>{{ post.body }}</p>
+                    <p>{{ post.body | linebreaks | slice:"600" }}...</p>
                     <!-- <p>{{ post.body | slice:":200" }}...</p> -->
                     </div>
                 </a>
